@@ -1,0 +1,29 @@
+D:\.prog\kod\Course-3-group-1\Course\3rd year\Lesson5\MySolution\3dEngine\3dEngine\bin\Debug\net8.0\3dEngine.exe
+D:\.prog\kod\Course-3-group-1\Course\3rd year\Lesson5\MySolution\3dEngine\3dEngine\bin\Debug\net8.0\3dEngine.deps.json
+D:\.prog\kod\Course-3-group-1\Course\3rd year\Lesson5\MySolution\3dEngine\3dEngine\bin\Debug\net8.0\3dEngine.runtimeconfig.json
+D:\.prog\kod\Course-3-group-1\Course\3rd year\Lesson5\MySolution\3dEngine\3dEngine\bin\Debug\net8.0\3dEngine.dll
+D:\.prog\kod\Course-3-group-1\Course\3rd year\Lesson5\MySolution\3dEngine\3dEngine\bin\Debug\net8.0\3dEngine.pdb
+D:\.prog\kod\Course-3-group-1\Course\3rd year\Lesson5\MySolution\3dEngine\3dEngine\obj\Debug\net8.0\3dEngine.GeneratedMSBuildEditorConfig.editorconfig
+D:\.prog\kod\Course-3-group-1\Course\3rd year\Lesson5\MySolution\3dEngine\3dEngine\obj\Debug\net8.0\3dEngine.AssemblyInfoInputs.cache
+D:\.prog\kod\Course-3-group-1\Course\3rd year\Lesson5\MySolution\3dEngine\3dEngine\obj\Debug\net8.0\3dEngine.AssemblyInfo.cs
+D:\.prog\kod\Course-3-group-1\Course\3rd year\Lesson5\MySolution\3dEngine\3dEngine\obj\Debug\net8.0\3dEngine.csproj.CoreCompileInputs.cache
+D:\.prog\kod\Course-3-group-1\Course\3rd year\Lesson5\MySolution\3dEngine\3dEngine\obj\Debug\net8.0\3dEngine.sourcelink.json
+D:\.prog\kod\Course-3-group-1\Course\3rd year\Lesson5\MySolution\3dEngine\3dEngine\obj\Debug\net8.0\3dEngine.dll
+D:\.prog\kod\Course-3-group-1\Course\3rd year\Lesson5\MySolution\3dEngine\3dEngine\obj\Debug\net8.0\refint\3dEngine.dll
+D:\.prog\kod\Course-3-group-1\Course\3rd year\Lesson5\MySolution\3dEngine\3dEngine\obj\Debug\net8.0\3dEngine.pdb
+D:\.prog\kod\Course-3-group-1\Course\3rd year\Lesson5\MySolution\3dEngine\3dEngine\obj\Debug\net8.0\3dEngine.genruntimeconfig.cache
+D:\.prog\kod\Course-3-group-1\Course\3rd year\Lesson5\MySolution\3dEngine\3dEngine\obj\Debug\net8.0\ref\3dEngine.dll
+D:\.prog\pet\3dEngine\3dEngine\bin\Debug\net8.0\3dEngine.exe
+D:\.prog\pet\3dEngine\3dEngine\bin\Debug\net8.0\3dEngine.deps.json
+D:\.prog\pet\3dEngine\3dEngine\bin\Debug\net8.0\3dEngine.runtimeconfig.json
+D:\.prog\pet\3dEngine\3dEngine\bin\Debug\net8.0\3dEngine.dll
+D:\.prog\pet\3dEngine\3dEngine\bin\Debug\net8.0\3dEngine.pdb
+D:\.prog\pet\3dEngine\3dEngine\obj\Debug\net8.0\3dEngine.GeneratedMSBuildEditorConfig.editorconfig
+D:\.prog\pet\3dEngine\3dEngine\obj\Debug\net8.0\3dEngine.AssemblyInfoInputs.cache
+D:\.prog\pet\3dEngine\3dEngine\obj\Debug\net8.0\3dEngine.AssemblyInfo.cs
+D:\.prog\pet\3dEngine\3dEngine\obj\Debug\net8.0\3dEngine.csproj.CoreCompileInputs.cache
+D:\.prog\pet\3dEngine\3dEngine\obj\Debug\net8.0\3dEngine.dll
+D:\.prog\pet\3dEngine\3dEngine\obj\Debug\net8.0\refint\3dEngine.dll
+D:\.prog\pet\3dEngine\3dEngine\obj\Debug\net8.0\3dEngine.pdb
+D:\.prog\pet\3dEngine\3dEngine\obj\Debug\net8.0\3dEngine.genruntimeconfig.cache
+D:\.prog\pet\3dEngine\3dEngine\obj\Debug\net8.0\ref\3dEngine.dll
