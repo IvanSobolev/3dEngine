@@ -1,5 +1,4 @@
 ﻿namespace _3dEngine;
-using System.Numerics;
 
 public class Screen()
 {
