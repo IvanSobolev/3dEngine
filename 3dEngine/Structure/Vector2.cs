@@ -6,29 +6,28 @@ public struct Vector2(float x = 0, float y = 0)
     public float Y = y;
 
     public static readonly Vector2 Zero = new Vector2();
-    private static Vector2 _returnVector2 = new Vector2();
     
     public static Vector2 operator +(Vector2 a, Vector2 b) 
-    { _returnVector2.X = a.X + b.X; _returnVector2.Y = a.Y + b.Y; return _returnVector2; }
+    {  return new Vector2(a.X + b.X, a.Y + b.Y); }
     public static Vector2 operator +(Vector2 a, int b) 
-    { _returnVector2.X = a.X + b; _returnVector2.Y = a.Y + b; return _returnVector2; }
+    {  return new Vector2(a.X + b, a.Y + b); }
     
     public static Vector2 operator -(Vector2 a, Vector2 b) 
-    { _returnVector2.X = a.X - b.X; _returnVector2.Y = a.Y - b.Y; return _returnVector2; }
+    {  return new Vector2(a.X - b.X, a.Y - b.Y); }
     public static Vector2 operator -(Vector2 a, int b) 
-    { _returnVector2.X = a.X - b; _returnVector2.Y = a.Y - b; return _returnVector2; }
-    
-    public static Vector2 operator *(Vector2 a, Vector2 b)
-    { _returnVector2.X = a.X * b.X; _returnVector2.Y = a.Y * b.Y; return _returnVector2; }
+    {  return new Vector2(a.X - b, a.Y - b); }
+
+    public static float operator *(Vector2 a, Vector2 b)
+    { return a.X * b.X + a.Y * b.Y; }
     public static Vector2 operator *(Vector2 a, int b)
-    { _returnVector2.X = a.X * b; _returnVector2.Y = a.Y * b; return _returnVector2; }
+    {  return new Vector2(a.X * b, a.Y * b); }
     
     public static Vector2 operator /(Vector2 a, Vector2 b)
-    { _returnVector2.X = a.X / b.X; _returnVector2.Y = a.Y / b.Y; return _returnVector2; }
+    {  return new Vector2(a.X / b.X, a.Y / b.Y); }
     public static Vector2 operator /(Vector2 a, int b)
-    { _returnVector2.X = a.X / b; _returnVector2.Y = a.Y / b; return _returnVector2; }
+    {  return new Vector2(a.X / b, a.Y / b); }
     public static Vector2 operator /(Vector2 a, Vector2Int b)
-    { _returnVector2.X = a.X / b.X; _returnVector2.Y = a.Y / b.Y; return _returnVector2; }
+    {  return new Vector2(a.X / b.X, a.Y / b.Y); }
 
     public Vector2 Rotate(float a)
     {

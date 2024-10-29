@@ -17,7 +17,6 @@ public class Sphere(Vector3 position, Vector3 rotate, float r = 1) : Shape(posit
         d = (float)Math.Sqrt(d);
         float p1 = (-b - d) / (2 * a);
         float p2 = (-b + d) / (2 * a);
-
         return new Vector2(p1, p2);
     }
 }

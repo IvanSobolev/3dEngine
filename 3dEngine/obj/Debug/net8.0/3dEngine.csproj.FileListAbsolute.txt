@@ -27,3 +27,4 @@ D:\.prog\pet\3dEngine\3dEngine\obj\Debug\net8.0\refint\3dEngine.dll
 D:\.prog\pet\3dEngine\3dEngine\obj\Debug\net8.0\3dEngine.pdb
 D:\.prog\pet\3dEngine\3dEngine\obj\Debug\net8.0\3dEngine.genruntimeconfig.cache
 D:\.prog\pet\3dEngine\3dEngine\obj\Debug\net8.0\ref\3dEngine.dll
+D:\.prog\pet\3dEngine\3dEngine\obj\Debug\net8.0\3dEngine.sourcelink.json

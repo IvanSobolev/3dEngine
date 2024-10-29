@@ -1,10 +1,11 @@
 ﻿namespace _3dEngine;
+using System.Numerics;
 
 public class Screen()
 {
     private readonly Vector2Int _resolution = new Vector2Int(Console.WindowWidth, Console.WindowHeight);
     private readonly char[] _screenChar = new char[Console.WindowWidth * Console.WindowHeight];
-    private readonly Vector2Int _pixelPos = new Vector2Int(0, 0);
+    private readonly Vector2Int _pixelPos = new Vector2Int(0);
     private readonly float _windowAspect = (float)Console.WindowWidth / Console.WindowHeight;
     private readonly float _pixelAspect = 11.0f / 24.0f;
     private const string Gradient = " .:!/r(l1Z4H9W8$@";

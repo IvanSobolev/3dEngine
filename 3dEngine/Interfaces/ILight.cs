@@ -1,4 +1,4 @@
-﻿namespace _3dEngine;
+﻿namespace _3dEngine.Interfaces;
 
 public interface ILight
 {
