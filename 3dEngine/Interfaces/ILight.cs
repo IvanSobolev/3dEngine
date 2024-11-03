@@ -2,5 +2,5 @@
 
 public interface ILight
 {
-    public int PointBright(Vector3 itPoint);
+    public int PointBright(Vector3 itPoint, Vector3 n);
 }
