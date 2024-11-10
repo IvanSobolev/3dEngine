@@ -8,11 +8,12 @@ public class Sphere(Vector3 position, Vector3 localRotate, float r = 1) : GameOb
 {
     public float R = r;
 
-    public RenderData GetRenderData(Vector3 rd, Vector3 ro)
+    public RenderData GetRenderData(Ray ray)
     {
-        Vector3 l = (ro - Position).Rotate(localRotate);
-        float a = rd * rd;
-        float b = 2 * (l * rd);
+        
+        Vector3 l = (ray.RayStart - Position).Rotate(localRotate);
+        float a = ray.RayDirection * ray.RayDirection;
+        float b = 2 * (l * ray.RayDirection);
         float c = l * l - R * R;
 
         float d = b * b - 4 * a * c;
@@ -22,7 +23,7 @@ public class Sphere(Vector3 position, Vector3 localRotate, float r = 1) : GameOb
         d = (float)Math.Sqrt(d);
         
         float intersection = (-b - d) / (2 * a);
-        Vector3 intersectionPoint = ro + rd * intersection;
+        Vector3 intersectionPoint = ray.GetIntersectionPoint(intersection);
         Vector3 normal = intersectionPoint - Position;
         
         return new RenderData(intersection, normal, intersectionPoint);

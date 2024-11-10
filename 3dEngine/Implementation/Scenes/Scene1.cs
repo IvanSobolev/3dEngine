@@ -75,7 +75,7 @@ public class Scene1 (IDisplaysManager iDisplaysManager) : Scene(iDisplaysManager
         _sphere.Position = new Vector3(0, 0, -2);
         _plane.Position = new Vector3(0, -1f, 0);
         
-        _camera.Position = new Vector3(-1f, 0, 0);
+        _camera.Position = new Vector3(0, 0, 0);
         _camera.LocalRotate.Z = -0.2f;
         
         _light.Position = new Vector3(0, 0, 0);
@@ -90,7 +90,6 @@ public class Scene1 (IDisplaysManager iDisplaysManager) : Scene(iDisplaysManager
     public override void Update()
     {
         _camera.GlobalRotate.Y += 1f * GameTime.GetDeltaTime();
-        _cube.LocalRotate.Y -= 2f * GameTime.GetDeltaTime();
         //_light.Position = _camera.GetRo();
     }
 }

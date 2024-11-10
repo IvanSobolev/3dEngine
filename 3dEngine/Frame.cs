@@ -15,7 +15,6 @@ public class Frame(Scene activeScene, IScreen screen)
         for (int t = 0; true; t++)
         {
             GameTime.StartFrame();
-            
             _activeScene.Update();
             for (int j = 0; j < _screen.GetHeight(); j++)
             {

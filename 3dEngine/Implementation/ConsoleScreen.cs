@@ -7,7 +7,7 @@ public class ConsoleScreen() : IScreen
     private readonly Vector2Int _resolution = new Vector2Int(Console.WindowWidth, Console.WindowHeight);
     private readonly char[] _screenChar = new char[Console.WindowWidth * Console.WindowHeight];
     private readonly Vector2Int _pixelPos = new Vector2Int(0);
-    private readonly float _windowAspect = (float)Console.WindowWidth / Console.WindowHeight;
+    private readonly float _windowAspect = (float)Console.WindowWidth / (Console.WindowHeight);
     private readonly float _pixelAspect = 11.0f / 24.0f;
     private const string Gradient = " .:!/r(l1Z4H9W8$@";
     
@@ -45,7 +45,7 @@ public class ConsoleScreen() : IScreen
 
     public void Paint(char sim)
     {
-        if (_screenChar[_pixelPos.Y * _resolution.X + _pixelPos.X] != sim)
+        if (_screenChar[_pixelPos.Y * _resolution.X + _pixelPos.X] != sim && _pixelPos.X < Console.WindowWidth && _pixelPos.Y < Console.WindowHeight)
         {
             Console.SetCursorPosition(_pixelPos.X,_pixelPos.Y);
             Console.Write(sim);

@@ -19,8 +19,8 @@ public class Light (Vector3 position, float lightPower) : GameObject(position, V
     {
         Vector3 lightDir = (Position - renderData.IntersectionPoint).Norm();
         bool isShadow = false;
-
-        _displaysManager.FindAllRenderData(renderData.IntersectionPoint,Position, objs);
+        Ray ray = new Ray(Position, renderData.IntersectionPoint);
+        _displaysManager.FindAllRenderData(ray, objs);
         var d = _displaysManager.GetNearbyRenderData();
         
         if ((Position - d.IntersectionPoint).Length() < (Position - renderData.IntersectionPoint).Length() - 0.1f) 
