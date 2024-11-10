@@ -4,5 +4,5 @@ namespace _3dEngine.Interfaces.modifier;
 
 public interface IDisplays
 {
-    public RenderData GetRenderData(Camera camera);
+    public RenderData GetRenderData(Vector3 rd, Vector3 ro);
 }

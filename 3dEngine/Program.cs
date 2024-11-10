@@ -7,7 +7,6 @@ class Program
 {
     static void Main()
     {
-        Frame frame = new Frame(new Scene1(new DisplaysManager()), new ConsoleScreen());
-        frame.MainLoop();
+        new Frame(new Scene1(new DisplaysManager()), new ConsoleScreen()).MainLoop();
     }
 }

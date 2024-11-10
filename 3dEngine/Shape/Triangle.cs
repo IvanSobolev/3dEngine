@@ -16,13 +16,11 @@ public class Triangle(Vector3[] vertex, Vector3 normal, Vector3 position = defau
         _normal = -Vector3.Cross(E1, E2).Norm();
     }
 
-    public RenderData GetRenderData(Camera camera)
+    public RenderData GetRenderData(Vector3 rd, Vector3 ro)
     {
         var v0 = (_vertex[0].Rotate(LocalRotate) + Position).Rotate(GlobalRotate);
         var v1 = (_vertex[1].Rotate(LocalRotate) + Position).Rotate(GlobalRotate);
         var v2 = (_vertex[2].Rotate(LocalRotate) + Position).Rotate(GlobalRotate);
-        Vector3 rd = camera.GetRd();
-        Vector3 ro = camera.GetRo();
         
         Vector3 E1 = v1 - v0;
         Vector3 E2 = v2 - v0;
@@ -40,7 +38,7 @@ public class Triangle(Vector3[] vertex, Vector3 normal, Vector3 position = defau
         if(t < 0) return RenderData.NoRender;
         
         var normal = _normal.Rotate(LocalRotate).Rotate(GlobalRotate).Norm();
-        var intersectionPoint = camera.GetIntersectionPoint(t);
+        var intersectionPoint = ro + rd * t;
         
         return new RenderData(t, normal, intersectionPoint);
     }

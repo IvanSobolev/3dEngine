@@ -90,6 +90,7 @@ public class Scene1 (IDisplaysManager iDisplaysManager) : Scene(iDisplaysManager
     public override void Update()
     {
         _camera.GlobalRotate.Y += 1f * GameTime.GetDeltaTime();
-        _light.Position = _camera.GetRo();
+        _cube.LocalRotate.Y -= 2f * GameTime.GetDeltaTime();
+        //_light.Position = _camera.GetRo();
     }
 }

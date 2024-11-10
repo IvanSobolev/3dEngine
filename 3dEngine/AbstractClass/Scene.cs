@@ -25,11 +25,11 @@ public abstract class Scene(IDisplaysManager displaysManager)
     public virtual int GetPixelBrightness(Vector2 uv)
     {
         _renderCamera.SetRdWithUv(uv);
-        _displaysManager.FindAllRenderData(_renderCamera, _allDisplays);
+        _displaysManager.FindAllRenderData(_renderCamera.GetRd(), _renderCamera.GetRo(), _allDisplays);
         int maxBrightness = 0;
         foreach (var light in _allLight)
         {
-            var brightness = light.PointBright(_displaysManager.GetNearbyRenderData());
+            var brightness = light.PointBright(_displaysManager.GetNearbyRenderData(), _allDisplays);
             if (brightness > maxBrightness)
             {
                 maxBrightness = brightness;

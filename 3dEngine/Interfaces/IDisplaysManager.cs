@@ -5,6 +5,6 @@ namespace _3dEngine.Interfaces;
 
 public interface IDisplaysManager
 {
-    public void FindAllRenderData(Camera camera, List<IDisplays> displays);
+    public void FindAllRenderData(Vector3 rd, Vector3 ro, List<IDisplays> displays);
     public RenderData GetNearbyRenderData();
 }

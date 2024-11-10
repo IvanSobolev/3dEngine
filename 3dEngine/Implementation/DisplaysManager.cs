@@ -7,12 +7,12 @@ public class DisplaysManager : IDisplaysManager
 {
     List<RenderData> _renderDatas  = new List<RenderData>{ };
     
-    public void FindAllRenderData(Camera camera, List<IDisplays> displays)
+    public void FindAllRenderData(Vector3 rd, Vector3 ro, List<IDisplays> displays)
     {
         _renderDatas.Clear();
         for(int i =0; i < displays.Count; i ++)
         {
-            var renderData = displays[i].GetRenderData(camera);
+            var renderData = displays[i].GetRenderData(rd, ro);
             if(renderData.Intersection > -1)
             {
                 _renderDatas.Add(renderData);

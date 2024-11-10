@@ -40,7 +40,7 @@ public class Object3d : GameObject, IDisplays
         }
     }
 
-    public RenderData GetRenderData(Camera camera)
+    public RenderData GetRenderData(Vector3 rd, Vector3 ro)
     {
         ids.Clear();
         foreach (var id in _faces)
@@ -50,7 +50,7 @@ public class Object3d : GameObject, IDisplays
             id.GlobalRotate = GlobalRotate;
             ids.Add(id);
         }
-        _displaysManager.FindAllRenderData(camera, ids);
+        _displaysManager.FindAllRenderData(rd, ro, ids);
         return _displaysManager.GetNearbyRenderData();
     }
 }
