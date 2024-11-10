@@ -49,18 +49,40 @@ public class Scene1 (IDisplaysManager iDisplaysManager) : Scene(iDisplaysManager
             new FacingInfo(new int[] {7,5,1}, 5),
             new FacingInfo(new int[] {4,2,6}, 6)
         });
+
+    private readonly Object3d _plane = new Object3d(
+        new Vector3[]
+        {
+            new Vector3(-5f, 0f, 5f),   
+            new Vector3(5f, 0f, 5f),
+            new Vector3(-5f, 0f, -5),
+            new Vector3(5f, 0f, -5f)
+        },
+        new Vector3[]
+        {
+            new Vector3(0f, 1f, 0f)
+        },
+        new FacingInfo[]
+        {
+            new FacingInfo(new int[] {2,3,1}, 1),
+            new FacingInfo(new int[] {2,4,3}, 1),
+        });
     
 
     public override void Start()
     {
         _cube.Position = new Vector3(0,0,2);
         _sphere.Position = new Vector3(0, 0, -2);
+        _plane.Position = new Vector3(0, -1f, 0);
         
         _camera.Position = new Vector3(-1f, 0, 0);
-        _light.Position = new Vector3(-1, 0, 0);
+        _camera.LocalRotate.Z = -0.2f;
+        
+        _light.Position = new Vector3(0, 0, 0);
         
         AddDisplaysObject(_cube);
         AddDisplaysObject(_sphere);
+        AddDisplaysObject(_plane);
         AddLight(_light);
         SetMainCamera(_camera);
     }
