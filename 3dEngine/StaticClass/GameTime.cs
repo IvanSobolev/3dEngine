@@ -1,4 +1,4 @@
-﻿namespace _3dEngine;
+﻿namespace _3dEngine.StaticClass;
 
 public static class GameTime
 {
@@ -19,6 +19,6 @@ public static class GameTime
 
     public static double GetFps()
     { return _fps; }
-    public static double GetDeltaTime()
-    { return _deltaTime; }
+    public static float GetDeltaTime()
+    { return (float)_deltaTime; }
 }

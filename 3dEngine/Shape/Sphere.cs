@@ -1,42 +1,33 @@
-﻿namespace _3dEngine;
+﻿using _3dEngine.AbstractClass;
+using _3dEngine.Implementation;
+using _3dEngine.Interfaces.modifier;
 
-public class Sphere(Vector3 position, Vector3 rotate, float r = 1) : Shape(position, rotate)
+namespace _3dEngine.Shape;
+
+public class Sphere(Vector3 position, Vector3 localRotate, float r = 1) : GameObject(position, localRotate), IDisplays
 {
     public float R = r;
-    private Vector3 _lastNormal = new Vector3();
-    
-    public override Vector3 ItPoint(Vector3 ro, Vector3 rd)
-    {
-        float intersection = Intersection(ro, rd);
-        Vector3 itPoint = ro + rd * intersection;
-        _lastNormal = intersection > -1 ?  itPoint - Position : Vector3.Zero;
-        return itPoint;
-    }
 
-    public override Vector3 LastPointNormal()
+    public RenderData GetRenderData(Camera camera)
     {
-        return _lastNormal;
-    }
-
-    private float SolvingQuadraticEquation(float a, float b, float c)
-    {
-        float d = b * b - 4 * a * c;
-        if (d < 0)
-        { return -1; }
-
-        d = (float)Math.Sqrt(d);
-        float answer = (-b - d) / (2 * a);
+        Vector3 ro = camera.GetRo();
+        Vector3 rd = camera.GetRd();
         
-        return answer;
-    }
-
-    private float Intersection(Vector3 ro, Vector3 rd)
-    {
-        Vector3 l = ro - Position;
+        Vector3 l = (ro - Position).Rotate(localRotate);
         float a = rd * rd;
         float b = 2 * (l * rd);
         float c = l * l - R * R;
 
-        return SolvingQuadraticEquation(a, b, c);
+        float d = b * b - 4 * a * c;
+        if (d < 0)
+        { return RenderData.NoRender; }
+
+        d = (float)Math.Sqrt(d);
+        
+        float intersection = (-b - d) / (2 * a);
+        Vector3 intersectionPoint = camera.GetIntersectionPoint(intersection);
+        Vector3 normal = intersectionPoint - Position;
+        
+        return new RenderData(intersection, normal, intersectionPoint);
     }
 }

@@ -1,6 +1,8 @@
-﻿namespace _3dEngine;
+﻿using _3dEngine.Interfaces;
 
-public class Screen()
+namespace _3dEngine.Implementation;
+
+public class ConsoleScreen() : IScreen
 {
     private readonly Vector2Int _resolution = new Vector2Int(Console.WindowWidth, Console.WindowHeight);
     private readonly char[] _screenChar = new char[Console.WindowWidth * Console.WindowHeight];
@@ -40,6 +42,7 @@ public class Screen()
         char sim = Gradient[brightness];
         Paint(sim);
     }
+
     public void Paint(char sim)
     {
         if (_screenChar[_pixelPos.Y * _resolution.X + _pixelPos.X] != sim)

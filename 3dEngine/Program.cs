@@ -1,11 +1,13 @@
-﻿namespace _3dEngine;
+﻿using _3dEngine.Implementation;
+using _3dEngine.Implementation.Scenes;
+
+namespace _3dEngine;
 
 class Program
 {
     static void Main()
     {
-        Console.SetWindowSize(120, 30);
-        Frame frame = new Frame();
+        Frame frame = new Frame(new Scene1(new DisplaysManager()), new ConsoleScreen());
         frame.MainLoop();
     }
 }

@@ -1,49 +1,47 @@
-﻿namespace _3dEngine;
+﻿using _3dEngine.AbstractClass;
+using _3dEngine.Implementation;
+using _3dEngine.Interfaces.modifier;
 
-public class Triangle
+namespace _3dEngine.Shape;
+
+public class Triangle(Vector3[] vertex, Vector3 normal, Vector3 position = default, Vector3 localRotation = default) : GameObject (position, localRotation), IDisplays
 {
-    public Vector3[] Vertex;
-    public Vector3 Normal;
+    private readonly Vector3[] _vertex = vertex;
+    private Vector3 _normal = normal;
 
-    
-    public Triangle(Vector3[] vertex, Vector3 normal)
+    public Triangle(Vector3[] vertex) : this(vertex, default)
     {
-        Vertex = vertex;
-        Normal = normal;
-    }
-    
-    public Triangle(Vector3[] vertex)
-    {
-        Vertex = vertex;
-        Vector3 E1 = vertex[1] - vertex[0];
-        Vector3 E2 = vertex[2] - vertex[0];
-        Normal = -Operation.Cross(E1, E2).Norm();
+        Vector3 E1 = _vertex[1] - _vertex[0];
+        Vector3 E2 = _vertex[2] - _vertex[0];
+        _normal = -Vector3.Cross(E1, E2).Norm();
     }
 
-    public float Intersection(Vector3 ro, Vector3 rd, Vector3 position, Vector3 rotation)
+    public RenderData GetRenderData(Camera camera)
     {
-        var v0 = (Vertex[0].Rotate(rotation) + position);
-        var v1 = (Vertex[1].Rotate(rotation) + position);
-        var v2 = (Vertex[2].Rotate(rotation) + position);
+        var v0 = (_vertex[0].Rotate(LocalRotate) + Position).Rotate(GlobalRotate);
+        var v1 = (_vertex[1].Rotate(LocalRotate) + Position).Rotate(GlobalRotate);
+        var v2 = (_vertex[2].Rotate(LocalRotate) + Position).Rotate(GlobalRotate);
+        Vector3 rd = camera.GetRd();
+        Vector3 ro = camera.GetRo();
+        
         Vector3 E1 = v1 - v0;
         Vector3 E2 = v2 - v0;
-        Vector3 P = Operation.Cross(rd, E2);
+        Vector3 P = Vector3.Cross(rd, E2);
         float det = E1 * P;
-        if (Math.Abs(det) < 1e-6) return -1;
+        if (Math.Abs(det) < 1e-6) return RenderData.NoRender;
         float invDet = 1.0f / det;
         Vector3 T = ro - v0;
         float u = T * P * invDet;
-        if(u < 0 || u > 1) return -1;
-        Vector3 Q = Operation.Cross(T, E1);
+        if(u < 0 || u > 1) return RenderData.NoRender;
+        Vector3 Q = Vector3.Cross(T, E1);
         float v = rd * Q * invDet;
-        if(v < 0 || u + v > 1) return -1;
+        if(v < 0 || u + v > 1) return RenderData.NoRender;
         float t = E2 * Q * invDet;
-        if(t < 0) return -1;
-        return t;
-    }
-
-    public Vector3 GetNormal(Vector3 rotation)
-    {
-        return Normal.Rotate(rotation);
+        if(t < 0) return RenderData.NoRender;
+        
+        var normal = _normal.Rotate(LocalRotate).Rotate(GlobalRotate).Norm();
+        var intersectionPoint = camera.GetIntersectionPoint(t);
+        
+        return new RenderData(t, normal, intersectionPoint);
     }
 }

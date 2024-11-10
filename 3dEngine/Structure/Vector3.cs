@@ -39,6 +39,24 @@ public struct Vector3(float x, float y, float z)
     public static Vector3 operator /(float b, Vector3 a)
     {  return new Vector3(b / a.X, b / a.Y, b / a.Z); }
 
+    public static bool operator ==(Vector3 a, Vector3 b)
+    {
+        return a.X == b.X && a.Y == b.Y && a.Z == b.Z;
+    }
+
+    public static bool operator !=(Vector3 a, Vector3 b)
+    {
+        return !(a == b);
+    }
+    
+    public static implicit operator Vector3(int a)
+    {
+        return new Vector3(a);
+    }
+
+
+    public  Vector3 Norm() => this / this.Length();
+    public float Length() => (float)Math.Sqrt(X * X + Y * Y + Z * Z);
     public Vector3 Rotate(Vector3 rotation)
     {
         var rotatedVector = RotateX(this, rotation.X);
@@ -79,5 +97,14 @@ public struct Vector3(float x, float y, float z)
         rotatedVector.Z = rot.Z;
         
         return rotatedVector;
+    }
+    
+    public static Vector3 Cross(Vector3 a, Vector3 b)
+    {
+        return new Vector3(
+            a.Y * b.Z - a.Z * b.Y,
+            a.Z * b.X - a.X * b.Z,
+            a.X * b.Y - a.Y * b.X
+        );
     }
 }
